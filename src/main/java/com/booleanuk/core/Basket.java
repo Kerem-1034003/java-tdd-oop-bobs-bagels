@@ -40,4 +40,12 @@ public class Basket {
         this.capacity = capacity;
     }
 
+    public double getTotalCost(){
+        double total = 0.0;
+        for (Bagel bagel : this.items){
+            total += bagel.getPrice();
+        }
+        return total;
+    }
+
 }
