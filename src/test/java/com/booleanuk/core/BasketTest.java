@@ -111,4 +111,12 @@ public class BasketTest {
         Assertions.assertEquals(2, basket.getItems().size());
     }
 
+    @Test
+    public void testGetFillingPriceBeforeAdding() {
+        Filling bacon = new Filling("FILB", "Bacon", 0.12);
+        Assertions.assertEquals("Bacon", bacon.getName());
+        Assertions.assertEquals(0.12, bacon.getPrice());
+        Assertions.assertEquals("FILB", bacon.getSku());
+    }
+
 }
