@@ -8,8 +8,7 @@ public class Basket {
     private int capacity;
 
     public Basket() {
-        this.items = new ArrayList<>();
-        this.capacity = 5;
+        this(5);
     }
 
     public boolean addItem(Bagel bagel) {
