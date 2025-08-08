@@ -106,7 +106,7 @@ public class BasketTest {
 
         Assertions.assertTrue(basket.addItem(bagel1));
         Assertions.assertTrue(basket.addItem(bagel2));
-        Assertions.assertFalse(basket.addItem(bagel3)); // capacity exceeded
+        Assertions.assertFalse(basket.addItem(bagel3));
 
         Assertions.assertEquals(2, basket.getItems().size());
     }
@@ -118,5 +118,21 @@ public class BasketTest {
         Assertions.assertEquals(0.12, bacon.getPrice());
         Assertions.assertEquals("FILB", bacon.getSku());
     }
+
+    @Test
+    public void testAddFillingToBagel() {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel("BGLO", "Bagel", "Onion", 0.49);
+        Filling bacon = new Filling("FILB", "Bacon", 0.12);
+        Filling egg = new Filling("FILE", "Egg", 0.12);
+
+        bagel.addFilling(bacon);
+        bagel.addFilling(egg);
+        basket.addItem(bagel);
+
+        Assertions.assertEquals(2, bagel.getFillings().size());
+        Assertions.assertEquals(0.73, basket.getTotalCost(), 0.001); // 0.49 + 0.12 + 0.12
+    }
+
 
 }
