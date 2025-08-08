@@ -89,5 +89,14 @@ public class BasketTest {
 
     }
 
+    @Test
+    public void testGetBagelPriceFromInventory() {
+        Inventory inventory = new Inventory();
+        double price = inventory.getPriceBySku("BGLO"); // Onion Bagel
+
+        Assertions.assertEquals(0.49, price, 0.001);
+    }
+
+
 
 }
