@@ -97,6 +97,18 @@ public class BasketTest {
         Assertions.assertEquals(0.49, price, 0.001);
     }
 
+    @Test
+    public void testCannotAddMoreThanCapacity() {
+        Basket basket = new Basket(2); // max 2 items
+        Bagel bagel1 = new Bagel("BGLO", "Bagel", "Onion", 0.49);
+        Bagel bagel2 = new Bagel("BGLP", "Bagel", "Plain", 0.39);
+        Bagel bagel3 = new Bagel("BGLE", "Bagel", "Everything", 0.49);
 
+        Assertions.assertTrue(basket.addItem(bagel1));
+        Assertions.assertTrue(basket.addItem(bagel2));
+        Assertions.assertFalse(basket.addItem(bagel3)); // capacity exceeded
+
+        Assertions.assertEquals(2, basket.getItems().size());
+    }
 
 }
