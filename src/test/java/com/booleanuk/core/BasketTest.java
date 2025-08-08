@@ -69,5 +69,25 @@ public class BasketTest {
         Assertions.assertEquals(1, basket.getItems().size());
     }
 
+    @Test
+    public void testGetTotalCostBasket(){
+        Basket basket = new Basket();
+
+        Bagel bagel1 = new Bagel("BGLO", "Bagel", "Onion", 0.49);
+        Bagel bagel2 = new Bagel("BGLP", "Bagel", "Plain", 0.39);
+        Bagel bagel3 = new Bagel("BGLE", "Bagel", "Everything", 0.49);
+        Bagel bagel4 = new Bagel("BGLS","Bagel",	"Sesame",0.49);
+
+        basket.addItem(bagel1);
+        basket.addItem(bagel2);
+        basket.addItem(bagel3);
+        basket.addItem(bagel4);
+
+        double total = basket.getTotalCost();
+
+        Assertions.assertEquals(1.86, total, 0.001);
+
+    }
+
 
 }
