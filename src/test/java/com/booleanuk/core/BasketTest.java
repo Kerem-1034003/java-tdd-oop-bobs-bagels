@@ -56,4 +56,18 @@ public class BasketTest {
         Assertions.assertEquals(10, basket.getCapacity());
     }
 
+    @Test
+    public void testRemoveNonexistentBagelFromBasket() {
+        Basket basket = new Basket();
+        Bagel onionBagel  = new Bagel("BGLO", "Bagel", "Onion", 0.49);
+        Bagel plainBagel = new Bagel("BGLP", "Bagel", "Plain", 0.39);
+
+        basket.addItem(onionBagel);
+        boolean result = basket.removeItem(plainBagel);
+
+        Assertions.assertFalse(result);
+        Assertions.assertEquals(1, basket.getItems().size());
+    }
+
+
 }
