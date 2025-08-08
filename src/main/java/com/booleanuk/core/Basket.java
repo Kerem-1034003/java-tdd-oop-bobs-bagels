@@ -17,4 +17,9 @@ public class Basket {
     public List<Bagel> getItems() {
         return this.items;
     }
+
+    public boolean removeItem(Bagel bagel) {
+        return this.items.remove(bagel);
+    }
+
 }
