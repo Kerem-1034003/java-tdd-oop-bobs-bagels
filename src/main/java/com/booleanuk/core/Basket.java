@@ -5,12 +5,17 @@ import java.util.List;
 
 public class Basket {
     private List<Bagel> items;
+    private int capacity;
 
     public Basket() {
         this.items = new ArrayList<>();
+        this.capacity = 5;
     }
 
     public boolean addItem(Bagel bagel) {
+        if (this.items.size() >= this.capacity) {
+            return false;
+        }
         return this.items.add(bagel);
     }
 
@@ -21,5 +26,11 @@ public class Basket {
     public boolean removeItem(Bagel bagel) {
         return this.items.remove(bagel);
     }
+
+    public Basket(int capacity) {
+        this.items = new ArrayList<>();
+        this.capacity = capacity;
+    }
+
 
 }
