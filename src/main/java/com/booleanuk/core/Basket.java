@@ -43,8 +43,12 @@ public class Basket {
         double total = 0.0;
         for (Bagel bagel : this.items){
             total += bagel.getPrice();
+            for (Filling filling : bagel.getFillings()) {
+                total += filling.getPrice();
+            }
         }
         return total;
     }
+
 
 }

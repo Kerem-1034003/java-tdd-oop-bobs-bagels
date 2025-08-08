@@ -1,5 +1,8 @@
 package com.booleanuk.core;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Bagel {
     private String sku;
     private String name;
@@ -28,4 +31,15 @@ public class Bagel {
     public double getPrice() {
         return price;
     }
+
+    private List<Filling> fillings = new ArrayList<>();
+
+    public void addFilling(Filling filling) {
+        this.fillings.add(filling);
+    }
+
+    public List<Filling> getFillings() {
+        return this.fillings;
+    }
+
 }
