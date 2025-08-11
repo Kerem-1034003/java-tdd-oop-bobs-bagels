@@ -3,7 +3,7 @@ package com.booleanuk.core;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Bagel {
+public class Bagel implements PricedItem {
     private String sku;
     private String name;
     private String variant;

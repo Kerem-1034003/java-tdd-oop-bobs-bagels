@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-public class Filling {
+public class Filling implements PricedItem{
     private String sku;
     private String name;
     private double price;
