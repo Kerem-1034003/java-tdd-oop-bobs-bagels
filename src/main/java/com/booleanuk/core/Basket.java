@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
-    private List<Bagel> items;
+    private List<Item> items;
     private int capacity;
 
     public Basket() {
         this(5);
     }
 
-    public boolean addItem(Bagel bagel) {
+    public boolean addItem(Item item) {
         if (this.items.size() >= this.capacity) {
             return false;
         }
-        return this.items.add(bagel);
+        return this.items.add(item);
     }
 
-    public List<Bagel> getItems() {
+    public List<Item> getItems() {
         return this.items;
     }
 
-    public boolean removeItem(Bagel bagel) {
-        return this.items.remove(bagel);
+    public boolean removeItem(Item item) {
+        return this.items.remove(item);
     }
 
     public Basket(int capacity) {
@@ -41,14 +41,16 @@ public class Basket {
 
     public double getTotalCost(){
         double total = 0.0;
-        for (Bagel bagel : this.items){
-            total += bagel.getPrice();
-            for (Filling filling : bagel.getFillings()) {
-                total += filling.getPrice();
+        for (Item item : this.items){
+            total += item.getPrice();
+
+            if (item instanceof Bagel) {
+                Bagel bagel = (Bagel) item;
+                for (Filling filling : bagel.getFillings()) {
+                    total += filling.getPrice();
+                }
             }
         }
         return total;
     }
-
-
 }

@@ -1,45 +1,28 @@
 package com.booleanuk.core;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Bagel implements PricedItem {
-    private String sku;
-    private String name;
-    private String variant;
+public class Bagel extends Item {
     private double price;
+    private List<Filling> fillings = new ArrayList<>();
 
     public Bagel(String sku, String name, String variant, double price) {
-        this.sku = sku;
-        this.name = name;
-        this.variant = variant;
+        super(sku, name, variant, price);
         this.price = price;
     }
 
-    public String getSku() {
-        return sku;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getVariant() {
-        return variant;
-    }
-
+    @Override
     public double getPrice() {
         return price;
     }
 
-    private List<Filling> fillings = new ArrayList<>();
-
     public void addFilling(Filling filling) {
-        this.fillings.add(filling);
+        fillings.add(filling);
     }
 
     public List<Filling> getFillings() {
-        return this.fillings;
+        return fillings;
     }
-
 }

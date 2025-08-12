@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inventory {
-    private Map<String, Bagel> stock;
+    private Map<String, Item> stock;
 
     public Inventory() {
         this.stock = new HashMap<>();
@@ -16,16 +16,16 @@ public class Inventory {
         stock.put("COFW", new Bagel("COFW", "Coffee", "White", 1.19));
         stock.put("COFC", new Bagel("COFC", "Coffee", "Capuccino", 1.29));
         stock.put("COFL", new Bagel("COFL", "Coffee", "Latte", 1.29));
-        stock.put("FILB", new Bagel("FILB", "Filling", "Bacon", 0.12));
-        stock.put("FILE", new Bagel("FILE", "Filling", "Egg", 0.12));
-        stock.put("FILC", new Bagel("FILC", "Filling", "Cheese", 0.12));
-        stock.put("FILX", new Bagel("FILX", "Filling", "Cream Cheese", 0.12));
-        stock.put("FILS", new Bagel("FILS", "Filling", "Smoked Salmon", 0.12));
-        stock.put("FILH", new Bagel("FILH", "Filling", "Ham", 0.12));
+        stock.put("FILB", new Filling("FILB", "Bacon", 0.12));
+        stock.put("FILE", new Filling("FILE", "Egg", 0.12));
+        stock.put("FILC", new Filling("FILC", "Cheese", 0.12));
+        stock.put("FILX", new Filling("FILX", "Cream Cheese", 0.12));
+        stock.put("FILS", new Filling("FILS", "Smoked Salmon", 0.12));
+        stock.put("FILH", new Filling("FILH", "Ham", 0.12));
     }
 
     public double getPriceBySku(String sku) {
-        Bagel item = stock.get(sku);
+        Item item = stock.get(sku);
         if (item != null) {
             return item.getPrice();
         }
